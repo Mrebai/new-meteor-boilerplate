@@ -6,6 +6,7 @@ import ApolloClient from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo';
 import App from '../../ui/App'
 import buildGraphQLProvider  from 'ra-data-graphql-simple';
+import {BrowserRouter,Route,Switch,Link,Redirect} from "react-router-dom"
 // http link
 
 const client = new ApolloClient({
