@@ -21,3 +21,6 @@ accounts-password
 underscore@1.0.10
 accounts-base
 webapp
+accounts-facebook
+accounts-google
+service-configuration

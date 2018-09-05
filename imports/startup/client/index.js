@@ -7,10 +7,11 @@ import { ApolloProvider } from 'react-apollo';
 import App from '../../ui/App'
 import buildGraphQLProvider  from 'ra-data-graphql-simple';
 import {BrowserRouter,Route,Switch,Link,Redirect} from "react-router-dom"
+import { Accounts } from 'meteor/accounts-base'
 // http link
 
 const client = new ApolloClient({
-    uri: Meteor.absoluteUrl('graphql'),
+    uri: '/graphql',
     request: operation =>
         operation.setContext(() => ({
             headers: {
@@ -31,9 +32,10 @@ Meteor.startup(() => {
 
                 <Switch>
                     <Route path={'/admin'} render={() =>
+
                         <AdminIndex data={data}/>
                     }/>
-                    <Route render={() =>
+                    <Route render={(match) =>
                         <ApolloProvider client={client}>
                             <App  client={client}/>
                         </ApolloProvider>
@@ -47,5 +49,5 @@ Meteor.startup(() => {
         )
 
     );
-    ;
+
 });
